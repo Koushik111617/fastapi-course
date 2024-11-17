@@ -1,0 +1,47 @@
+pip install python-jose[crytography]
+
+    from jose import JWTError, jwt
+    secret_key, algorithm(HS256), Expiration Time
+
+   from fastapi.security import OAuth2PasswordBearer
+
+
+pip install passlib['bcrypt']   --- this is for hashing the password
+hashing is one way, it's not like encrypt and decrypt
+
+
+JWT Token:
+   Header :   algo:Hs256, type: jwt
+   payload: username:, userid:
+   secret:
+
+   we will pass these three things to signature algorithm, which will give us the token, this token is not encrypted.
+
+
+Alembic:
+
+alembic revision --autogenerate -m "added phone number column"
+alembic upgrade head
+alembic revision -m "Create posts table"
+alembic upgrade
+alembic upgrade +1
+alembic downgrade {provice revision number}
+alembic downgrade -1
+alembic downgrade -2
+alembic current    ====  this gives you the current revision number
+
+-------------------------------
+API can get requests from postman, curl, mobile devices, web browser
+
+cors policy( origin resource sharing):
+   allows requests from a web browser on one domain to a server on a different domain
+if our api is hosted on google.com and our website is hosted on a ebay.com. ebay.com by default cannot send a request to an api running on
+google.com which is of different domain. its gona get blocked by CORS Policy.
+
+if our api is running on google.com and our website is also running on google.com then it will be a talk just fine by default.
+to prove this :
+go to browser and type localhost:8000 and hit enter you will get the response
+
+
+
+
