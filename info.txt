@@ -19,13 +19,14 @@ JWT Token:
 
 
 Alembic:
-
+pip install alembic
+alembic init alembic ====> this will create directory alembic(with some files .env is one of them) and also a file (alembic.ini)
 alembic revision --autogenerate -m "added phone number column"
+alembic history
 alembic upgrade head
 alembic revision -m "Create posts table"
 alembic upgrade
-alembic upgrade +1
-alembic downgrade {provice revision number}
+alembic upgrade +1 alembic downgrade {provice revision number}
 alembic downgrade -1
 alembic downgrade -2
 alembic current    ====  this gives you the current revision number
@@ -41,6 +42,12 @@ google.com which is of different domain. its gona get blocked by CORS Policy.
 if our api is running on google.com and our website is also running on google.com then it will be a talk just fine by default.
 to prove this :
 go to browser and type localhost:8000 and hit enter you will get the response
+
+webbrowser---inspect---console---fetch('http"//localhost:8000/').then(res=>res.json()).then(console.log)
+
+token: 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
+
+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
 
 
 
