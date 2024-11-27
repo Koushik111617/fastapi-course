@@ -13,9 +13,10 @@ class PostBase(BaseModel):
 class PostCreate(PostBase):
     pass
 
+
 class UserOut(BaseModel):
-    email: EmailStr
     id: int
+    email: EmailStr
     created_at: datetime
 
     class Config:
@@ -34,7 +35,7 @@ class Post(PostBase):
 
 class PostOut(PostBase):
     Post: Post
-    votes: int
+    votes: Optional[int] = 0
 
     class Config:
         from_attributes = True

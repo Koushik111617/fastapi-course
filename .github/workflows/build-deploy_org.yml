@@ -1,0 +1,11 @@
+name: Build and Deploy Code
+
+on:
+  push:
+#    branches: ["main", "another_branch", "feature_branch"]
+#    branches:
+#      - "main"
+#      - "anotherbranch"
+#  pull_request:
+#    branches:
+#      - "test_branches"

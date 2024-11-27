@@ -7,8 +7,8 @@ from .config import settings
 
 # models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
-origins = ["https://www.google.com", "https://www.youtube.com"]
-# origins = ["*"]
+# origins = ["https://www.google.com", "https://www.youtube.com"]
+origins = ["*"]
 # before every function this CORSMiddleware (basically its a function that runs before every request) is going to run first
 app.add_middleware(
     CORSMiddleware,
@@ -25,7 +25,7 @@ app.include_router(vote.router)
 
 @app.get("/")
 def root():
-    return {"message": "welcome to my API..."}
+    return {"message": "bind mount worked"}
 
 
 

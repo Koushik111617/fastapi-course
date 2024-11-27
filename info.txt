@@ -49,6 +49,140 @@ token: github_pat_11BNAOXWI0Pbk77cTRWyfp_btddeRlWqf6xmibjPfVPsC4yZXjZLNVpv2NgAow
 
 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
 
+--------------------------------
+Heroku
+
+heroku create fastapi-koushik
+git remote
+git push heroku main
+git push origin main
+
+heruku run "alembic upgrade head"
+
+heroku run ps:restart
+---------------------------------------------------
+ log into ubuntu server:
+ sudo apt update && sudo apt upgrade -y
+ python --version
+ python3 --version
+ sudo apt install python-3.10.4
+ pip3 --version
+ pip --version
+ sudo apt install python3-pip
+ sudo pip3 install vertualenv
+ sudo apt install postgresql postgresql-contrib -y
+ psql -version
+ psql -U postgres
+ whoami
+ sudo cat /etc/passwd     # to check all the users
+ su - postgres     # connect to user postgres
+ psql -U postgres
+ \password postgres    # creating a password to a postgres user
+      enter password
+
+ to exit out of the postgres give "\q"
+ to come out of ubuntu postgres user give "exit"
+ cd /etc/postgresql/14/main  # usually whatever apps we install in ubuntu , its configurations will be in /etc
+ ls
+ sudo vi postgresql.conf
+    here added below line under connectionsa and authentications
+    listen_address = '*'
+ sudo vi pg_hba.conf
+ remove peer and replace it with md5
+ to restart the application
+ systemctl restart postgresql
+ # crate a user in ubuntu
+ adduser username
+    give password
+ switch to root user
+ usermod -aG sudo Koushik    this for getting root user privilage   password given is india123
+ mkdir app
+ cd app
+ vertualenv venv
+ source venv/bin/activate
+ git clone https://github.com/Koushik111617/fastapi-course.git .
+ cd ../
+ source venv/bin/activate
+ cd src
+ pip install -r requirements.txt
+ sudo apt install libpq-dev
+ uvicorn app.main:app
+ printenv
+ export, unset, variable_name
+ cd ~
+ touch .env
+set -o allexport; source /home/koushik/.env; set +o allexport
+cd ~
+vi .profile
+paste the command
+
+uvicorn --host 0.0.0.0 app.main:app
+
+we are going to use some process manager (gunicorn)
+pip install gunicorn   : this is for responsible for starting our application in case of applicaiton crash
+pip install httptools
+pip install uvloop
+gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app --bind  0.0.0.0:8000  this sis for starting the appliation with 4 threads use it if your pc supports
+ps -aef | grep -i gunicorn
+ctrl+c to stop
+systemctl start/restart/status aaplication_name
+cd /etc/systemd/system
+here you will find all the services that are installed on our machine
+we have create a file gunicorn.service
+sudo vi api.service
+systemctl start api
+sudo systemctl enable api.service  # this is will allow our api to tun whenever our system reboots
+-----------------
+sudo apt install nginx -y
+systemctl start nginx
+ifconfig
+keep the ip in internet browser
+cd /etc/nginx/sites-available/
+cat default   This is a default configuration file
+
+-----------------------------
+
+docker build -t fastapi .     this is for creating docker image
+docker-compose up -d          this is for creating docker container  (projdir_servicename-1(no. of containers))
+docker ps -a
+docker logs fastapi_prj-api-1
+in docker-compose file
+env_file:
+ - ./.env
+
+docker-compose down
+docker images
+docker rmi imageId
+
+docker exec -it fastapi_prj-api-1 bash
+
+docker image ls
+docker login
+docker image tag fastapi_prj-api koushik111671/fastapi
+docker push koushik111671/fastapi
+docker-compose -f docker-compose-dev.yml up -d
+docker-compose -f docker-compose-dev.yml down
+
+-------
+
+pytest --disable-warnings
+pytest - v -s
+pytest --disable-warnings -v -x    this is to stop after the first failure of test case
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
