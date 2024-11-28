@@ -163,6 +163,9 @@ docker push koushik111671/fastapi
 docker-compose -f docker-compose-dev.yml up -d
 docker-compose -f docker-compose-dev.yml down
 
+docker login -u koushik111671
+dockerhub access token: dckr_pat_9GeEMEMW7s2pSyamasRinK5lEEU
+
 -------
 
 pytest --disable-warnings
